@@ -4,8 +4,8 @@ server:
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://1.116.165.56:3306/red_exam?serverTimezone=GMT%2b8
-    username: red_exam
+    url: jdbc:mysql://192.168.254.48:3306/red_dev_exam?serverTimezone=GMT%2b8
+    username: red_dev_exam
     password: 123456
 mybatis:
   mapper-locations:
@@ -44,7 +44,7 @@ oj:
   # 配置邮箱验证的地址（打包时需要更改为服务器的外网ip）
   email: http://localhost:3000
   #服务器ip（存文件）
-  serverIp: http://localhost
+  serverIp: http://1.116.165.56
   #jar
 #  email: http://101.43.208.178
 #  serverIp: http://101.43.208.178

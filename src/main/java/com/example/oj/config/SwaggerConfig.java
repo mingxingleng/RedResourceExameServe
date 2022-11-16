@@ -27,17 +27,31 @@ public class SwaggerConfig {
      *
      * @return
      */
+//    @Bean
+//    public Docket restApi() {
+//        return new Docket(DocumentationType.SWAGGER_2)
+//                .groupName("标准接口")
+//                .apiInfo(apiInfo("Spring Boot中使用Swagger3构建RESTful APIs", "1.0"))
+//                .useDefaultResponseMessages(true)
+//                .forCodeGeneration(false)
+//                .select()
+//                .apis(RequestHandlerSelectors.basePackage("com.example.oj.controller"))
+//                .paths(PathSelectors.any())
+//                .build();
+//    }
+
     @Bean
-    public Docket restApi() {
+    Docket docket() {
         return new Docket(DocumentationType.SWAGGER_2)
-                .groupName("标准接口")
-                .apiInfo(apiInfo("Spring Boot中使用Swagger3构建RESTful APIs", "1.0"))
-                .useDefaultResponseMessages(true)
-                .forCodeGeneration(false)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.example.oj.controller"))
+                .apis(RequestHandlerSelectors.basePackage("com.example.oj"))
                 .paths(PathSelectors.any())
-                .build();
+                .build()
+                .apiInfo(new ApiInfoBuilder()
+                        .description("接口文档的描述信息")
+                        .title("接口文档")
+                        .version("2.0")
+                        .build());
     }
 
     /**
