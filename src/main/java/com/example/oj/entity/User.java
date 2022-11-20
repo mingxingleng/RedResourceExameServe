@@ -33,6 +33,8 @@ public class User {
     private String role;
     @ApiModelProperty("昵称")
     private String nickname;
+    @ApiModelProperty("班级")
+    private String className;
     @ApiModelProperty("邮箱")
     private String email;
     @ApiModelProperty("登陆状态")

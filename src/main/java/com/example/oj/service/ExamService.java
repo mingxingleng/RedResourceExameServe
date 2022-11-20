@@ -34,4 +34,14 @@ public class ExamService extends ServiceImpl<ExamMapper, Exam> {
     public List<Programme> getProgrammes(String[] programme) {
         return examMapper.getProgrammes(programme);
     }
+
+    //获取班级
+    public String getClassName(String username){
+        return examMapper.getClassName(username);
+    }
+
+    //通过班级展示信息
+    public List<OneClassExam> getSpecialUserList(String examId,String className){
+        return examMapper.getSpecialUserList(examId,className);
+    }
 }

@@ -16,6 +16,7 @@ import com.example.oj.exception.ServiceException;
 import com.example.oj.service.ContestService;
 import com.example.oj.service.ExamService;
 import com.example.oj.service.UserService;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -198,6 +199,24 @@ public class ExamController {
     }
 
 
+    @ApiOperation("请求相应班级的学生试卷")
+    @PostMapping("/getSpecialUserList")
+    public Result getSpecialUserList(@RequestParam("examId") String id,
+                                     @RequestParam("className") String className) {
+        return Result.success(service.getSpecialUserList(id,className));
+    }
+
+    @ApiOperation("请求班级名称")
+    @GetMapping("/getClassName")
+    public Result getClassName(@RequestParam("username") String username){
+        String className = service.getClassName(username);
+        if (className != null){
+            return Result.success(className);
+        }
+        return Result.error("200","该用户不属于红色班级");
+    }
+
+//    查询所有考试人员的分数
     /**
      * 根据考试id查找出所有参加考试学生的成绩
      * @param id
@@ -211,6 +230,8 @@ public class ExamController {
         List<Contest> list = contestService.list(queryWrapper);
         return Result.success(list);
     }
+
+
 
 
     /**
